@@ -55,7 +55,7 @@ void GS32Config::load() {
             }
             case ConfigEntry::TYPE_INT8: {
                 int8_t* p = (int8_t*)entry.ptr;
-                if (_prefs.isKey(entry.key)) *p = (int8_t)_prefs.GetChar(entry.key, entry.defaultInt);
+                if (_prefs.isKey(entry.key)) *p = (int8_t)_prefs.getChar(entry.key, entry.defaultInt);
                 else _prefs.putChar(entry.key, *p);
                 break;
             }
