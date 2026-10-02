@@ -6,7 +6,7 @@
 #include <functional>
 
 struct ConfigEntry {
-    const char* key;
+    String key;             // ИСПРАВЛЕНО: теперь строка копируется в объект String (безопасно для циклов)
     void* ptr;
     enum Type {
         TYPE_BOOL,
@@ -17,7 +17,7 @@ struct ConfigEntry {
     } type;
     size_t maxLen;
     int32_t defaultInt;
-    const char* defaultStr;
+    String defaultStr;      // ИСПРАВЛЕНО: тоже заменено на String для безопасности строк по умолчанию
 };
 
 class GS32Config {
